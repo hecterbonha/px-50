@@ -23,9 +23,6 @@ const PX50 = () => {
     let s = "";
     for (var i = 32; i <= 126; i++) {
       s += String.fromCharCode(i);
-      if ((i & 5) === 0) {
-        s += String.fromCharCode(13);
-      }
     }
     return s;
   };
@@ -37,8 +34,12 @@ const PX50 = () => {
     setAllColorGenerated(colorArray);
   }, [colorArray]);
   return (
-    <React.Fragment>
-      <p>{allStringGenerated}</p>
+    <div style={{ margin: '5px' }}>
+      <h4>Generate String</h4>
+      <br />
+      <p style={{ wordWrap: 'break-word' }}>{allStringGenerated}</p>
+      <br />
+      <h4>Generate Color</h4>
       {allColorGenerated.map(color => {
         return (
           <div style={{ backgroundColor: color }} key={color}>
@@ -50,7 +51,7 @@ const PX50 = () => {
         <h1>Welcome to PX-50</h1>
         <h5>A fantasy console made in Javascript/Electron</h5>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

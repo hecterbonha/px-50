@@ -1,5 +1,10 @@
 {
   "name": "px-50",
+  "description": "a fantasy console written in javascript",
+  "author": {
+    "name": "Untung So Andryanto",
+    "email": "untungsoandryanto@gmail.com"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,9 +22,9 @@
     "electron": "electron .",
     "electron-start": "node src/start-react",
     "react-start": "BROWSER=none react-scripts start",
-    "pack": "build --dir",
-    "dist": "npm run build && build",
-    "postinstall": "install-app-deps"
+    "pack": "electron-builder --dir",
+    "dist": "cp src/start.js public/electron.js && yarn build && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,12 +47,22 @@
     "foreman": "^3.0.1"
   },
   "build": {
-    "appId": "net.hecterbonha.px50",
-    "win": {
-      "iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
+    "appId": "com.hecterbonha.px-50",
+    "extraFiles": {
+      "from": "./build",
+      "to": "./dist"
     },
-    "directories": {
-      "buildResources": "public"
+    "win": {
+      "icon": "build/images/icon.ico",
+      "target": [
+        "portable"
+      ]
+    },
+    "linux": {
+      "icon": "build/images/icon.png",
+      "target": [
+        "pacman"
+      ]
     }
   }
 }
