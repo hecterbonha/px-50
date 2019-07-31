@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./Main/App";
-import * as ServiceWorker from "./Utils/ServiceWorker";
+import { PX50 } from "./Main/Application";
+import "./index.css";
 
-ReactDOM.render(<App />, document.getElementById("px-50"));
-
-ServiceWorker.register();
+ReactDOM.render(<PX50 />, document.getElementById("PX-50"));
