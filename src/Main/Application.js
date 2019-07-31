@@ -40,9 +40,10 @@ const PX50 = () => {
       <p style={{ wordWrap: 'break-word' }}>{allStringGenerated}</p>
       <br />
       <h4>Generate Color</h4>
+      <br />
       {allColorGenerated.map(color => {
         return (
-          <div style={{ backgroundColor: color }} key={color}>
+          <div style={{ backgroundColor: color, color: color === '#f4f4f4' ? '#1a1c2c' : '#f4f4f4' }} key={color}>
             {color}
           </div>
         );

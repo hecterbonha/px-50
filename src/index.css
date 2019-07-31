@@ -22,19 +22,17 @@
   --color-15: #f4f4f4;
 }
 
-::selection {
-  background: var(--color-14);
-  color: var(--color-15);
-}
-::-moz-selection {
-  background: var(--color-14);
-  color: var(--color-15);
-}
-
 * {
   background-color: var(--color-0);
   font-family: "Kongtext", Arial, Helvetica, sans-serif;
   color: var(--color-15);
   padding: 0;
   margin: 0;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
