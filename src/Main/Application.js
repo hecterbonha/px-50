@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { ApplicationProvider, ApplicationContext } from './ApplicationState';
-import { DebugScreen } from './Screen/DebugScreen';
-import SplashScreen from './Screen/SplashScreen';
+import React from 'react';
+import { ApplicationProvider } from './ApplicationState';
 import { css } from 'emotion';
+import TitleBar from './Components/TitleBar';
+import ScreenHandler from './Screen/_ScreenHandler';
 
 const PX50 = () => {
   return (
@@ -18,35 +18,6 @@ const PX50 = () => {
         </ApplicationProvider>
       </div>
     </React.Fragment>
-  );
-};
-
-const ScreenHandler = () => {
-  const applicationContext = useContext(ApplicationContext);
-
-  const activeScreen = new Map([
-    ['splash', SplashScreen],
-    ['debug', DebugScreen]
-  ]);
-
-  const Handler = activeScreen.get(applicationContext.activeScreen);
-  return <Handler />;
-};
-
-const TitleBar = () => {
-  return (
-    <div
-      className={css`
-        -webkit-user-select: none;
-        -webkit-app-region: drag;
-        width: 100%;
-        height: 24px;
-        position: fixed;
-        top: 0;
-        background-color: var(--color-0);
-        z-index: 10;
-      `}
-    />
   );
 };
 

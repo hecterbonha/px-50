@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import { css } from 'emotion';
+import { pxCommand } from '../../Utils/OSRunner';
 
 const Terminal = ({ terminalRef }) => {
   const [messagePool, setMessagePool] = useState([]);
-  function handleTerminalKeyStroke(e) {
+  async function handleTerminalKeyStroke(e) {
+    const terminalCurrentValue = terminalRef.current.value;
     if (e.key === 'Enter') {
-      const newMessagePool = [...messagePool, terminalRef.current.value];
-      setMessagePool(newMessagePool);
-      terminalRef.current.value = '';
-      terminalRef.current.focus();
+      const terminalResponse = pxCommand(terminalRef.current.value);
+      const newMessagePool = [...messagePool, terminalResponse];
+      await setMessagePool(newMessagePool);
+      if (handleTerminal(terminalCurrentValue)) {
+        terminalRef.current.value = '';
+        window.scrollTo(0, 10000 + 500000 * messagePool.length);
+        terminalRef.current.focus();
+      }
     }
   }
   return (
@@ -22,14 +28,15 @@ const Terminal = ({ terminalRef }) => {
       />
       {messagePool ? (
         messagePool.map((item, index) => (
-          <p
+          <div
             className={css`
               font-size: 14px;
+              margin-top: 5px;
             `}
             key={index}
           >
             {item}
-          </p>
+          </div>
         ))
       ) : (
         <React.Fragment />
@@ -40,6 +47,7 @@ const Terminal = ({ terminalRef }) => {
           display: flex;
           flex-direction: row;
           alignitems: center;
+          margin-top: 8px;
         `}
       >
         <p>>_ </p>
@@ -48,7 +56,7 @@ const Terminal = ({ terminalRef }) => {
             margin-left: 8px;
             outline: none;
             border: none;
-            caret-color: #38b764;
+            caret-color: var(--color-10);
             width: 100%;
             resize: none;
             font-size: 14px;

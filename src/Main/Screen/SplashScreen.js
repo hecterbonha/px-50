@@ -17,7 +17,7 @@ const SplashScreen = () => {
         setTimeout(wowEffect, speed);
       } else {
         setTimeout(() => {
-          applicationContext.setActiveScreen('debug');
+          applicationContext.setActiveScreen('console');
         }, 200);
       }
     }
@@ -44,4 +44,4 @@ const SplashScreen = () => {
   );
 };
 
-export default SplashScreen;
+export { SplashScreen };
