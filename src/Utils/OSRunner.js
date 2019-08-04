@@ -17,7 +17,7 @@ const pxCommand = string => {
 
 const helpCommand = () => {
   const listOfCommand = [
-    { command: 'px', description: 'Lauunch PX-OS Desktop' },
+    { command: 'px', description: 'Lauunch PX-OS desktop' },
     { command: 'help', description: 'spawn all available command' },
     { command: 'clear', description: 'clear the command history on screen' },
     { command: 'debug', description: 'show debug screen' },
@@ -68,7 +68,7 @@ const exitCommand = () => {
 };
 
 const pxOSCommand = () => {
-  return 'Launching PX-OS Desktop ...';
+  return 'Launching PX-OS desktop ...';
 };
 
 const commandHandler = command => {
