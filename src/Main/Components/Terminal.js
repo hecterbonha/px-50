@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { css } from 'emotion';
-import { pxCommand } from '../../Utils/OSRunner';
+import { pxCommand, checkIfRedirecting } from '../../Utils/OSRunner';
 
 const Terminal = ({ terminalRef }) => {
   const [messagePool, setMessagePool] = useState([]);
@@ -8,12 +8,18 @@ const Terminal = ({ terminalRef }) => {
     const terminalCurrentValue = terminalRef.current.value;
     if (e.key === 'Enter') {
       const terminalResponse = pxCommand(terminalRef.current.value);
-      const newMessagePool = [...messagePool, terminalResponse];
-      await setMessagePool(newMessagePool);
-      if (handleTerminal(terminalCurrentValue)) {
+      if (terminalResponse === 'clearTerminal') {
+        setMessagePool([]);
+        window.scrollTo(0, 0);
         terminalRef.current.value = '';
-        window.scrollTo(0, 10000 + 500000 * messagePool.length);
-        terminalRef.current.focus();
+      } else {
+        const newMessagePool = [...messagePool, terminalResponse];
+        await setMessagePool(newMessagePool);
+        if (!checkIfRedirecting(terminalCurrentValue)) {
+          terminalRef.current.value = '';
+          window.scrollTo(0, 10000 + 500000 * messagePool.length);
+          terminalRef.current.focus();
+        }
       }
     }
   }

@@ -13,7 +13,8 @@ function createWindow() {
     width: 800,
     height: 600,
     icon: path.join(__dirname, './Assets/Icons/px-50.svg'),
-    titleBarStyle: 'hidden'
+    titleBarStyle: 'hidden',
+    webPreferences: { webSecurity: false, nodeIntegration: true }
   });
   mainWindow.setMenuBarVisibility(false);
   mainWindow.loadURL(

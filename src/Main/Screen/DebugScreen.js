@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import { ApplicationContext } from '../ApplicationState';
 import { css } from 'emotion';
 
 const DebugScreen = () => {
+  const escapeRef = useRef(null);
+  const applicationContext = useContext(ApplicationContext);
+
   const colorArray = [
     '#1a1c2c',
     '#5d275d',
@@ -30,12 +34,29 @@ const DebugScreen = () => {
   const [allStringGenerated] = useState(generateString);
   const [allColorGenerated] = useState(colorArray);
 
+  useEffect(() => {
+    escapeRef.current.focus();
+  });
+
   return (
     <div
       className={css`
         margin: 5px;
-        min-height: 100vh;
+        outline: none;
+        border: none;
+        min-height: calc(100vh - 30px);
       `}
+      tabIndex="0"
+      ref={escapeRef}
+      onKeyDown={e => {
+        console.log(e);
+        if (e.key === 'Escape') {
+          applicationContext.setActiveScreen('console');
+        }
+      }}
+      onClick={() => {
+        escapeRef.current.focus();
+      }}
     >
       <div>
         <h4>Generate String</h4>
@@ -63,6 +84,15 @@ const DebugScreen = () => {
             </div>
           );
         })}
+      </div>
+      <div
+        className={css`
+          font-size = 14px;  
+          color: var(--color-4);
+          margin-top: 24px;
+        `}
+      >
+        Press ESC to go back
       </div>
     </div>
   );
