@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
-import { ApplicationContext } from '../ApplicationState';
+import { ApplicationContext } from '../Providers/ApplicationState';
 import { css } from 'emotion';
 
 const DebugScreen = () => {
@@ -49,7 +49,6 @@ const DebugScreen = () => {
       tabIndex="0"
       ref={escapeRef}
       onKeyDown={e => {
-        console.log(e);
         if (e.key === 'Escape') {
           applicationContext.setActiveScreen('console');
         }
@@ -92,7 +91,7 @@ const DebugScreen = () => {
           margin-top: 24px;
         `}
       >
-        Press ESC to go back
+        Press ESC to go to console
       </div>
     </div>
   );

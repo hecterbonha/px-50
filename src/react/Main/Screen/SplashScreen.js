@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { ApplicationContext } from '../ApplicationState';
+import { ApplicationContext } from '../Providers/ApplicationState';
 import * as Tone from 'tone';
 
 const SplashScreen = () => {
