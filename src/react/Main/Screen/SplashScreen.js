@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { ApplicationContext } from '../ApplicationState';
+import { ApplicationContext } from '../Providers/ApplicationState';
 import * as Tone from 'tone';
 
 const SplashScreen = () => {
@@ -12,6 +12,7 @@ const SplashScreen = () => {
     const speed = 200;
     function wowEffect() {
       if (i < txt.length) {
+        console.log(txt);
         setTextState(prevState => (prevState += txt.charAt(i)));
         i++;
         setTimeout(wowEffect, speed);

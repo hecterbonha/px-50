@@ -1,8 +1,12 @@
 import React, { useContext } from 'react';
-import { ApplicationContext } from '../ApplicationState';
+import { ApplicationContext } from '../Providers/ApplicationState';
+import { Desktop } from './Desktop';
 import { DebugScreen } from './DebugScreen';
 import { SplashScreen } from './SplashScreen';
 import { ConsoleScreen } from './ConsoleScreen';
+import { CodeScreen } from './CodeScreen';
+import { MusicScreen } from './MusicScreen';
+import { GraphicScreen } from './GraphicScreen';
 
 const ScreenHandler = () => {
   const applicationContext = useContext(ApplicationContext);
@@ -10,7 +14,11 @@ const ScreenHandler = () => {
   const activeScreen = new Map([
     ['splash', SplashScreen],
     ['debug', DebugScreen],
-    ['console', ConsoleScreen]
+    ['console', ConsoleScreen],
+    ['code', CodeScreen],
+    ['music', MusicScreen],
+    ['graphic', GraphicScreen],
+    ['desktop', Desktop]
   ]);
 
   const Handler = activeScreen.get(applicationContext.activeScreen);
