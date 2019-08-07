@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
-import { css } from "emotion";
-import { ApplicationContext } from "../Main/Providers/ApplicationState";
+import React, { useContext } from 'react';
+import { css } from 'emotion';
+import { ApplicationContext } from '../Main/Providers/ApplicationState';
+const { remote } = window;
 
 const Redirect = props => {
   const applicationContext = useContext(ApplicationContext);
@@ -9,18 +10,18 @@ const Redirect = props => {
 };
 
 const pxCommand = string => {
-  const userCommand = string.split(" ")[0];
+  const userCommand = string.split(' ')[0];
   const result = commandHandler(userCommand);
   return result ? result : `${userCommand}: is an unknown command`;
 };
 
 const helpCommand = () => {
   const listOfCommand = [
-    { command: "px", description: "Launch px-OS desktop" },
-    { command: "help", description: "spawn all available command" },
-    { command: "clear", description: "clear the command history on screen" },
-    { command: "debug", description: "show debug screen" },
-    { command: "exit", description: "shutdown px-50" }
+    { command: 'px', description: 'Launch px-OS desktop' },
+    { command: 'help', description: 'spawn all available command' },
+    { command: 'clear', description: 'clear the command history on screen' },
+    { command: 'debug', description: 'show debug screen' },
+    { command: 'exit', description: 'shutdown px-50' }
   ];
   return (
     <React.Fragment>
@@ -58,34 +59,43 @@ const debugCommand = () => {
 };
 
 const clearCommand = () => {
-  return "clearTerminal";
+  return 'clearTerminal';
 };
 
 const exitCommand = () => {
-  return "Shutting down ...";
+  remote.getCurrentWindow().close();
+  return 'Shutting down ...';
 };
 
 const pxOSCommand = () => {
-  return "Launching PX-OS desktop ...";
+  return (
+    <div
+      className={css`
+        margin-top: 5px;
+      `}
+    >
+      <Redirect string="desktop" />
+    </div>
+  );
 };
 
 const commandHandler = command => {
   switch (command) {
-    case "exit":
+    case 'exit':
       return exitCommand();
-    case "help":
+    case 'help':
       return helpCommand();
-    case "debug":
+    case 'debug':
       return debugCommand();
-    case "clear":
+    case 'clear':
       return clearCommand();
-    case "px":
+    case 'px':
       return pxOSCommand();
     default:
   }
 };
 
-const redirectChecker = new Map([["debug", true], [false]]);
+const redirectChecker = new Map([['debug', true], ['px', true], [false]]);
 
 const checkIfRedirecting = props => {
   return redirectChecker.get(props);

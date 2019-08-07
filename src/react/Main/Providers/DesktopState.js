@@ -5,10 +5,10 @@ const DesktopContext = React.createContext();
 
 const DesktopProvider = props => {
   const { children } = props;
-  const [activeScreen, setActiveScreen] = useState('splash');
+  const [isBooted, setIsBooted] = useState(false);
   const desktopValue = {
-    activeScreen,
-    setActiveScreen
+    isBooted,
+    setIsBooted
   };
   return (
     <DesktopContext.Provider value={{ ...desktopValue }}>

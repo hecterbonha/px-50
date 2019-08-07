@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ApplicationProvider } from './Providers/ApplicationState';
 import { css } from 'emotion';
 import TitleBar from './Components/TitleBar';
 import ScreenHandler from './Screen/_ScreenHandler';
 
-const PX50 = ({ appName, appVersion }) => {
-  useEffect(() => {
-    console.log(appName, appVersion);
-  }, []);
+const PX50 = () => {
   return (
     <React.Fragment>
       <TitleBar />
