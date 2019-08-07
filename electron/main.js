@@ -14,12 +14,11 @@ function createWindow() {
       protocol: 'file:',
       slashes: true
     });
-  console.log(process.env);
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     titleBarStyle: 'hidden',
-    frame: os.type() === 'Linux' ? true : false,
+    frame: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
