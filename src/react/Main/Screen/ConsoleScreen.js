@@ -30,7 +30,7 @@ const WelcomeMessage = () => {
         padding-top: 12px;
       `}
     >
-      <h1>Welcome to px-50</h1>
+      <h1>Welcome to px-50!</h1>
       <h5>Electron powered Fantasy Console</h5>
       <div
         className={css`

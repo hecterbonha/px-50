@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 const { channels } = require('../src/shared/constants');
+const os = require('os');
 
 let mainWindow;
 
@@ -18,7 +19,7 @@ function createWindow() {
     width: 800,
     height: 600,
     titleBarStyle: 'hidden',
-    frame: false,
+    frame: os.type() === 'Linux' ? true : false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }

@@ -1,7 +1,7 @@
 {
   "name": "px-50",
   "version": "0.0.2",
-  "productName": "px-50 a fantasy console written in Javascript",
+  "productName": "px-50",
   "main": "electron/main.js",
   "private": true,
   "dependencies": {
@@ -13,6 +13,7 @@
   },
   "homepage": "./",
   "scripts": {
+    "dev": "yarn start & yarn start-electron &",
     "start": "export BROWSER=none && react-scripts start",
     "start-win": "set BROWSER=none && react-scripts start",
     "start-electron": "export ELECTRON_START_URL=http://localhost:3000 && electron .",

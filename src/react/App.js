@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { PX50 } from "../react/Main/Application";
-import { channels } from "../shared/constants";
-import { injectGlobal } from "emotion";
+import React, { Component } from 'react';
+import { PX50 } from '../react/Main/Application';
+import { channels } from '../shared/constants';
+import { injectGlobal } from 'emotion';
 const { ipcRenderer } = window;
 
 injectGlobal`
@@ -53,8 +53,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      appName: "",
-      appVersion: ""
+      appName: '',
+      appVersion: ''
     };
     ipcRenderer.send(channels.APP_INFO);
     ipcRenderer.on(channels.APP_INFO, (event, arg) => {
@@ -62,6 +62,7 @@ class App extends Component {
       const { appName, appVersion } = arg;
       this.setState({ appName, appVersion });
     });
+    console.log(process);
   }
 
   render() {
