@@ -6,9 +6,13 @@ const ApplicationContext = React.createContext();
 const ApplicationProvider = props => {
   const { children } = props;
   const [activeScreen, setActiveScreen] = useState('splash');
+  const [desktopLoaded, setDesktopLoaded] = useState(false);
+
   const applicationValue = {
     activeScreen,
-    setActiveScreen
+    setActiveScreen,
+    desktopLoaded,
+    setDesktopLoaded
   };
   return (
     <ApplicationContext.Provider value={{ ...applicationValue }}>

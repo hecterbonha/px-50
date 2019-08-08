@@ -63,8 +63,10 @@ const clearCommand = () => {
 };
 
 const exitCommand = () => {
-  remote.getCurrentWindow().close();
-  return 'Shutting down ...';
+  if (remote) {
+    remote.getCurrentWindow().close();
+  }
+  return <Redirect string="shutdown" />;
 };
 
 const pxOSCommand = () => {
@@ -74,7 +76,7 @@ const pxOSCommand = () => {
         margin-top: 5px;
       `}
     >
-      <Redirect string="desktop" />
+      <Redirect string="boot" />
     </div>
   );
 };
@@ -95,7 +97,12 @@ const commandHandler = command => {
   }
 };
 
-const redirectChecker = new Map([['debug', true], ['px', true], [false]]);
+const redirectChecker = new Map([
+  ['debug', true],
+  ['px', true],
+  ['exit', true],
+  [false]
+]);
 
 const checkIfRedirecting = props => {
   return redirectChecker.get(props);

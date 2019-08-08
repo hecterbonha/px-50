@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ApplicationContext } from '../Providers/ApplicationState';
-import { Desktop } from './Desktop';
+import { Boot } from './Boot';
 import { DebugScreen } from './DebugScreen';
 import { SplashScreen } from './SplashScreen';
 import { ConsoleScreen } from './ConsoleScreen';
@@ -18,7 +18,8 @@ const ScreenHandler = () => {
     ['code', CodeScreen],
     ['music', MusicScreen],
     ['graphic', GraphicScreen],
-    ['desktop', Desktop]
+    ['boot', Boot],
+    ['shutdown', ShutDown]
   ]);
 
   const Handler = activeScreen.get(applicationContext.activeScreen);
@@ -26,3 +27,7 @@ const ScreenHandler = () => {
 };
 
 export default ScreenHandler;
+
+const ShutDown = () => {
+  return <h5>it is now safe to turn off your px-50</h5>;
+};

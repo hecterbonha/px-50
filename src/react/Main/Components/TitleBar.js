@@ -13,8 +13,15 @@ const TitleBar = () => {
         top: 0;
         background-color: var(--color-0);
         z-index: 10;
+        font-size: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       `}
-    />
+    >
+      px-50
+    </div>
   );
 };
 

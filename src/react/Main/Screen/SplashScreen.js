@@ -7,28 +7,29 @@ const SplashScreen = () => {
   const [textState, setTextState] = useState('');
 
   useEffect(() => {
-    let i = 0;
-    const txt = 'PX-50';
-    const speed = 200;
-    function wowEffect() {
-      if (i < txt.length) {
-        console.log(txt);
-        setTextState(prevState => (prevState += txt.charAt(i)));
-        i++;
-        setTimeout(wowEffect, speed);
-      } else {
-        setTimeout(() => {
-          applicationContext.setActiveScreen('console');
-        }, 200);
-      }
-    }
     const synth = new Tone.AMSynth().toMaster();
     synth.triggerAttackRelease('C8', 0.1, 0);
     synth.triggerAttackRelease('E8', 0.2, 0.2);
     synth.triggerAttackRelease('D8', 0.1, 0.3);
     synth.triggerAttackRelease('F8', 0.2, 0.4);
-    wowEffect();
-  }, [applicationContext]);
+    const px = ['p', 'px', 'px-', 'px-5', 'px-50', '[px-50', '[px-50]'];
+    const handleLoad = () => {
+      for (let i = 0; i < 7; i++) {
+        setTimeout(async () => {
+          await setTextState(px[i]);
+        }, i + 200 * i);
+      }
+    };
+    handleLoad();
+  }, []);
+
+  useEffect(() => {
+    if (textState === '[px-50]') {
+      setTimeout(() => {
+        return applicationContext.setActiveScreen('console');
+      }, 300);
+    }
+  }, [textState, applicationContext]);
   return (
     <div
       style={{

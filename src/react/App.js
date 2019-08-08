@@ -14,6 +14,10 @@ injectGlobal`
   display: none;
 }
 
+@-moz-document url-prefix() {
+    html,body{overflow: hidden !important;}
+}
+
 :root {
   --color-0: #1a1c2c;
   --color-1: #5d275d;
@@ -56,13 +60,14 @@ class App extends Component {
       appName: '',
       appVersion: ''
     };
-    ipcRenderer.send(channels.APP_INFO);
-    ipcRenderer.on(channels.APP_INFO, (event, arg) => {
-      ipcRenderer.removeAllListeners(channels.APP_INFO);
-      const { appName, appVersion } = arg;
-      this.setState({ appName, appVersion });
-    });
-    console.log(process);
+    if (ipcRenderer) {
+      ipcRenderer.send(channels.APP_INFO);
+      ipcRenderer.on(channels.APP_INFO, (event, arg) => {
+        ipcRenderer.removeAllListeners(channels.APP_INFO);
+        const { appName, appVersion } = arg;
+        this.setState({ appName, appVersion });
+      });
+    }
   }
 
   render() {
