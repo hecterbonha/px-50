@@ -29,5 +29,5 @@ const ScreenHandler = () => {
 export default ScreenHandler;
 
 const ShutDown = () => {
-  return <h5>it is now safe to turn off your px-50</h5>;
+  return <h5>it is now safe to turn off your px-50 ...</h5>;
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
+const { remote } = window;
 
 const TitleBar = () => {
   return (
@@ -16,11 +17,26 @@ const TitleBar = () => {
         font-size: 10px;
         text-align: center;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        border-bottom: 1px solid var(--color-14);
       `}
     >
-      px-50
+      <div
+        className={css`
+          margin-left: 5px;
+          width: 12px;
+          height: 12px;
+          background-color: var(--color-2);
+        `}
+        onClick={() => {
+          if (remote) {
+            remote.getCurrentWindow().close();
+          }
+        }}
+      />
+      <div>px-50 | Fantasy Console</div>
+      <div />
     </div>
   );
 };

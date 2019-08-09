@@ -12,8 +12,15 @@ const Boot = () => {
 };
 
 const DesktopHelper = () => {
+  const [helper, setHelper] = useState(false);
   const desktopContext = useContext(DesktopContext);
-  if (desktopContext.isBoooted) {
+
+  useEffect(() => {
+    if (desktopContext.isBooted) {
+      setHelper(true);
+    }
+  }, [desktopContext.isBooted]);
+  if (helper) {
     return <DesktopBooted />;
   }
   return <DesktopBootProcess />;
@@ -22,6 +29,7 @@ const DesktopHelper = () => {
 const DesktopBootProcess = () => {
   const [processMessage, setProcessMessage] = useState(0);
   const applicationContext = useContext(ApplicationContext);
+  const desktopContext = useContext(DesktopContext);
 
   useEffect(() => {
     const handleLoad = () => {
@@ -37,9 +45,10 @@ const DesktopBootProcess = () => {
   useEffect(() => {
     if (processMessage === 100) {
       applicationContext.setDesktopLoaded(true);
+      desktopContext.setIsBooted(true);
     }
-  }, [processMessage, applicationContext]);
-  return <p>Loading {processMessage}%</p>;
+  }, [processMessage, applicationContext, desktopContext]);
+  return <p style={{ marginLeft: '5px' }}>Loading {processMessage}%</p>;
 };
 
 export { Boot };
