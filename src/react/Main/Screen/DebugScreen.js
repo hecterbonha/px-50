@@ -41,10 +41,9 @@ const DebugScreen = () => {
   return (
     <div
       className={css`
-        margin: 5px;
         outline: none;
         border: none;
-        min-height: calc(100vh - 30px);
+        min-height: calc(100vh - 36px);
       `}
       tabIndex="0"
       ref={escapeRef}

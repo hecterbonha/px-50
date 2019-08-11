@@ -20,11 +20,11 @@ const TitleBar = () => {
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid var(--color-14);
+        padding-left: 5px;
       `}
     >
       <div
         className={css`
-          margin-left: 5px;
           width: 12px;
           height: 12px;
           background-color: var(--color-2);

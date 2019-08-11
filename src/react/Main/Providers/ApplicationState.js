@@ -5,7 +5,7 @@ const ApplicationContext = React.createContext();
 
 const ApplicationProvider = props => {
   const { children } = props;
-  const [activeScreen, setActiveScreen] = useState('splash');
+  const [activeScreen, setActiveScreen] = useState('boot');
   const [desktopLoaded, setDesktopLoaded] = useState(false);
 
   const applicationValue = {

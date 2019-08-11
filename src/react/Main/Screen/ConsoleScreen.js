@@ -13,7 +13,6 @@ const ConsoleScreen = () => {
   return (
     <div
       className={css`
-        margin: 5px;
         min-height: calc(100vh - 36px);
       `}
       onClick={focusOnTerminal}

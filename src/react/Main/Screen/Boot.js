@@ -48,7 +48,7 @@ const DesktopBootProcess = () => {
       desktopContext.setIsBooted(true);
     }
   }, [processMessage, applicationContext, desktopContext]);
-  return <p style={{ marginLeft: '5px' }}>Loading {processMessage}%</p>;
+  return <p style={{ padding: '5px' }}>Loading {processMessage}%</p>;
 };
 
 export { Boot };

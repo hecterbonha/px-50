@@ -41,14 +41,13 @@ injectGlobal`
   background-color: var(--color-0);
   font-family: 'Kongtext', Arial, Helvetica, sans-serif;
   color: var(--color-15);
-  padding: 0;
-  margin: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin: 0;
 }
 
 `;

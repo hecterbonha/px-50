@@ -5,12 +5,34 @@ const DesktopBooted = () => {
   return (
     <div
       className={css`
-        min-height: 100vh;
-        min-width: 100vw;
-        background-color: var(--color-14);
+        background-color: var(--color-7);
+        margin: -5px;
+        min-height: calc(100vh - 24px);
+        font-size: 12px;
       `}
     >
-      Woy
+      <ToolBar />
+    </div>
+  );
+};
+
+const ToolBar = () => {
+  return (
+    <div
+      className={css`
+        position: absolute;
+        bottom: 0;
+        background-color: var(--color-15);
+        height: 18px;
+        width: 100%;
+        color: var(--color-0);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px;
+      `}
+    >
+      | CODE | SFX | ART | MAP |
     </div>
   );
 };

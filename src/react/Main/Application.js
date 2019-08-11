@@ -8,15 +8,16 @@ const PX50 = () => {
   return (
     <React.Fragment>
       <TitleBar />
-      <div
-        className={css`
-          margin-top: 24px;
-        `}
-      >
-        <ApplicationProvider>
+      <ApplicationProvider>
+        <div
+          className={css`
+            margin-top: 24px;
+            padding: 5px;
+          `}
+        >
           <ScreenHandler />
-        </ApplicationProvider>
-      </div>
+        </div>
+      </ApplicationProvider>
     </React.Fragment>
   );
 };
