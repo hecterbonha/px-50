@@ -20,7 +20,6 @@ const TitleBar = () => {
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid var(--color-14);
-        padding-left: 5px;
       `}
     >
       <div
@@ -28,6 +27,7 @@ const TitleBar = () => {
           width: 12px;
           height: 12px;
           background-color: var(--color-2);
+          margin-left: 5px;
         `}
         onClick={() => {
           if (remote) {
@@ -35,8 +35,20 @@ const TitleBar = () => {
           }
         }}
       />
-      <div>px-50 | Fantasy Console</div>
-      <div />
+      <div>px-50 | Fantasy Machine</div>
+      <div
+        className={css`
+          width: 12px;
+          height: 12px;
+          background-color: var(--color-5);
+          margin-right: 5px;
+        `}
+        onClick={() => {
+          if (remote) {
+            remote.getCurrentWindow().minimize();
+          }
+        }}
+      />
     </div>
   );
 };

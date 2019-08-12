@@ -28,11 +28,12 @@ const ToolBar = () => {
         color: var(--color-0);
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        padding: 5px;
       `}
     >
-      | CODE | SFX | ART | MAP |
+      <div>{'Apps Menu'}</div>
+      <div>{'Mouse Tool tips'}</div>
     </div>
   );
 };

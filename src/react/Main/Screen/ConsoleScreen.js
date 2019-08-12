@@ -36,7 +36,7 @@ const WelcomeMessage = () => {
       ) : (
         <div>
           <h1>Welcome to px-50!</h1>
-          <h5>Electron powered Fantasy Console</h5>
+          <h5>Electron powered Fantasy Machine</h5>
           <div
             className={css`
               font-size: 12px;
