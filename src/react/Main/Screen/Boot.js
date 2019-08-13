@@ -36,7 +36,7 @@ const DesktopBootProcess = () => {
       for (let i = 0; i < 101; i++) {
         setTimeout(async () => {
           await setProcessMessage(i);
-        }, i + 20 * i);
+        }, i + 20);
       }
     };
     handleLoad();

@@ -17,7 +17,7 @@ const pxCommand = string => {
 
 const helpCommand = () => {
   const listOfCommand = [
-    { command: 'px', description: 'Launch px-OS desktop' },
+    { command: 'px', description: 'Launch px-OS devtools' },
     { command: 'help', description: 'spawn all available command' },
     { command: 'clear', description: 'clear the command history on screen' },
     { command: 'debug', description: 'show debug screen' },
