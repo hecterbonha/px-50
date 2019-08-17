@@ -76,7 +76,7 @@ const pxOSCommand = () => {
         margin-top: 5px;
       `}
     >
-      <Redirect string="boot" />
+      <Redirect string="code" />
     </div>
   );
 };

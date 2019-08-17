@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { ApplicationContext } from '../Providers/ApplicationState';
-import { Boot } from './Boot';
 import { DebugScreen } from './DebugScreen';
 import { SplashScreen } from './SplashScreen';
 import { ConsoleScreen } from './ConsoleScreen';
@@ -18,7 +17,6 @@ const ScreenHandler = () => {
     ['code', CodeScreen],
     ['music', MusicScreen],
     ['graphic', GraphicScreen],
-    ['boot', Boot],
     ['shutdown', ShutDown]
   ]);
 

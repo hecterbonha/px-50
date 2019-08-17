@@ -66,6 +66,7 @@ const Terminal = ({ terminalRef }) => {
             width: 100%;
             resize: none;
             font-size: 14px;
+            background-color: var(--color-14);
           `}
           autoFocus
           ref={terminalRef}

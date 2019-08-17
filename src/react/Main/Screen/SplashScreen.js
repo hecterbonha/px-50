@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { ApplicationContext } from '../Providers/ApplicationState';
 import * as Tone from 'tone';
+import { css } from 'emotion';
 
 const SplashScreen = () => {
   const applicationContext = useContext(ApplicationContext);
@@ -33,15 +34,24 @@ const SplashScreen = () => {
   return (
     <div
       style={{
-        minHeight: '100vh',
-        minWidth: '100vw',
+        minHeight: 'calc(100vh - 34px)',
+        minWidth: 'calc(100vw - 10px)',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'var(--color-0)',
+        margin: '-5px',
+        padding: '5px'
       }}
     >
-      <div>{textState}</div>
+      <div
+        className={css`
+          color: var(--color-11);
+        `}
+      >
+        {textState}
+      </div>
     </div>
   );
 };

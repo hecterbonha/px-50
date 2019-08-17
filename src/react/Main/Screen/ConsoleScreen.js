@@ -1,6 +1,7 @@
 import React, { useRef, useContext } from 'react';
 import { ApplicationContext } from '../Providers/ApplicationState';
 import Terminal from '../Components/Terminal';
+import { FullscreenSizer } from '../Components/FullscreenSizer';
 import { css } from 'emotion';
 
 const ConsoleScreen = () => {
@@ -11,15 +12,10 @@ const ConsoleScreen = () => {
   };
 
   return (
-    <div
-      className={css`
-        min-height: calc(100vh - 36px);
-      `}
-      onClick={focusOnTerminal}
-    >
+    <FullscreenSizer onClick={focusOnTerminal} color={'var(--color-14)'}>
       <WelcomeMessage />
       <Terminal terminalRef={terminalRef} />
-    </div>
+    </FullscreenSizer>
   );
 };
 

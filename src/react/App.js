@@ -38,7 +38,6 @@ injectGlobal`
 }
 
 * {
-  background-color: var(--color-0);
   font-family: 'Kongtext', Arial, Helvetica, sans-serif;
   color: var(--color-15);
   -webkit-touch-callout: none;

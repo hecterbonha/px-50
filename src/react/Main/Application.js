@@ -13,6 +13,7 @@ const PX50 = () => {
           className={css`
             margin-top: 24px;
             padding: 5px;
+            background-color: var(--color-14);
           `}
         >
           <ScreenHandler />

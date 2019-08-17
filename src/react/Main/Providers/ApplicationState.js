@@ -6,7 +6,8 @@ const ApplicationContext = React.createContext();
 const ApplicationProvider = props => {
   const { children } = props;
   // Default is 'splash'
-  const [activeScreen, setActiveScreen] = useState('splash');
+  // Directly go to px-OS with 'code'
+  const [activeScreen, setActiveScreen] = useState('code');
   const [desktopLoaded, setDesktopLoaded] = useState(false);
 
   const applicationValue = {
