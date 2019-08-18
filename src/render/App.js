@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PX50 } from '../react/Main/Application';
+import { PX50 } from '../render/PXOS/Main';
 import { channels } from '../shared/constants';
 import { injectGlobal } from 'emotion';
 const { ipcRenderer } = window;
@@ -47,6 +47,7 @@ injectGlobal`
   -ms-user-select: none;
   user-select: none;
   margin: 0;
+  padding: 0;
 }
 
 `;
