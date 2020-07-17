@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {
     "emotion": "^10.0.14",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "pixi.js": "^5.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
