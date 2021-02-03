@@ -1,13 +1,14 @@
-import React from "react";
-import NextDocument, { DocumentContext } from "next/document";
-import { css } from "../stitches.config";
+import type { DocumentContext } from "next/document";
+import NextDocument from "next/document";
+import { css } from "stitches.config";
 
+// eslint-disable-next-line import/no-default-export
 export default class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage;
 
     try {
-      let extractedStyles;
+      let extractedStyles: any[];
       ctx.renderPage = () => {
         const { styles, result } = css.getStyles(originalRenderPage);
         extractedStyles = styles;
@@ -22,16 +23,19 @@ export default class Document extends NextDocument {
           <>
             {initialProps.styles}
 
-            {extractedStyles.map((content, index) => (
-              <style
-                key={index}
-                dangerouslySetInnerHTML={{ __html: content }}
-              />
-            ))}
+            {extractedStyles.map((content, index) => {
+              return (
+                <style
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: content }}
+                />
+              );
+            })}
           </>
         ),
       };
     } finally {
+      console.error("hmmm");
     }
   }
 }
