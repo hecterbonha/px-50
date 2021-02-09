@@ -1,5 +1,6 @@
 import type { DocumentContext } from "next/document";
 import NextDocument from "next/document";
+import { Head, Html, Main, NextScript } from "next/document";
 import { css } from "stitches.config";
 
 // eslint-disable-next-line import/no-default-export
@@ -34,8 +35,21 @@ export default class Document extends NextDocument {
           </>
         ),
       };
-    } finally {
-      console.error("hmmm");
+    } catch {
+      console.error("Failed to create stylesheet");
     }
+  }
+  render() {
+    return (
+      <Html>
+        <Head>
+          <link rel="icon" href="favicon.ico" type="image/ico" />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
