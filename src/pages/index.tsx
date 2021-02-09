@@ -1,6 +1,3 @@
-import Head from "next/head";
-// import { styled } from "stitches.config";
-import { Fragment } from "react";
 import {
   Code,
   HeadingFour,
@@ -9,13 +6,11 @@ import {
   HeadingTwo,
   Paragraph,
 } from "src/components/design/type";
+import { DesignLayout } from "src/components/layout/design";
 
 const Home = () => {
   return (
-    <Fragment>
-      <Head>
-        <title>Malah Ngoding</title>
-      </Head>
+    <DesignLayout title="Malah Ngoding">
       <HeadingOne>Malah Ngoding</HeadingOne>
       <HeadingTwo>Malah Ngoding</HeadingTwo>
       <HeadingThree>Malah Ngoding</HeadingThree>
@@ -38,7 +33,7 @@ const Home = () => {
 </ul>
         `}
       </Code>
-    </Fragment>
+    </DesignLayout>
   );
 };
 
